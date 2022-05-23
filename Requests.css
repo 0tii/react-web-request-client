@@ -20,6 +20,15 @@ Web Request Client Widget
     border-radius: 5px;
 }
 
+label {
+    color: white;
+    font-weight: 600;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    margin-left: 3px;
+    margin-right: auto;
+}
+
 #status-labels {
     margin-left: auto;
     margin-right: 0;
@@ -28,13 +37,6 @@ Web Request Client Widget
 #output-labels {
     display: flex;
     flex-direction: row;
-}
-
-label {
-    color: white;
-    font-weight: 600;
-    padding-right: 10px;
-    padding-bottom: 2px;
 }
 
 .status-label {
