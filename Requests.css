@@ -11,9 +11,8 @@ Web Request Client Widget
 
 #main-container {
     position: relative;
-    width: 35%;
+    width: 100%;
     min-width: 200px;
-    background-color: rgb(41, 57, 86);
     display: flex;
     flex-direction: column;
     filter: drop-shadow(2px 2px 10px black);
