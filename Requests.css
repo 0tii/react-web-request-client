@@ -11,8 +11,6 @@ Web Request Client Widget
 
 #main-container {
     position: relative;
-    margin: auto;
-    margin-top: 10em;
     width: 35%;
     min-width: 200px;
     background-color: rgb(41, 57, 86);
