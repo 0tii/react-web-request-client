@@ -26,9 +26,14 @@ export default class RequestClient {
 
         let reqHeader = this._buildHeader();
 
+        let uri = this._validateUri(this.uri);
+        let proxy;
+        if (this.proxy)
+            proxy = this._validateUri(this.proxy);
+
         try {
             var response = await fetch(
-                (this.proxy !== undefined) ? this.proxy + this.uri : this.uri, {
+                (this.proxy) ? proxy + uri : uri, {
                     method: this.method.toUpperCase(),
                     headers: reqHeader,
                     body: (this.method === 'get') ? null : this.body,
@@ -47,11 +52,20 @@ export default class RequestClient {
         } catch (err) {
             this.time = Date.now() - startTime;
             return {
-                message: { error: "connection failed." },
+                message: { error: "404 status encountered. Invalid host, path or target is not CORS-enabled." },
                 status: 404,
                 time: this.time
             };
         }
+    }
+
+    _validateUri(str) {
+        let uri = '';
+        if (!str.startsWith('http://' || str.startsWith('https://'))) {
+            console.warn("URI given does not specify protocol. Trying to fix by defaulting to http.");
+            uri = 'http://' + str;
+        }
+        return uri;
     }
 
     /**
