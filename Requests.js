@@ -12,7 +12,7 @@ import RequestClient from './RequestClient';
  * @param {*} proxy A CORS proxy URL
  * @returns React Component
  */
-export default function Requests(proxy) {
+export default function Requests(props) {
 
     const [uri, setUri] = useState('');
     const [header, setHeader] = useState('');
@@ -23,7 +23,7 @@ export default function Requests(proxy) {
     const [statusCode, setStatusCode] = useState(0);
 
     const onSend = async () => {
-        let client = new RequestClient(uri, requestMethod, header, body, proxy);
+        let client = new RequestClient(props.proxy, uri, requestMethod, header, body);
         let response = await client.makeRequest();
 
         //update field states

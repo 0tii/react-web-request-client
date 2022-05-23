@@ -12,7 +12,12 @@ As this component logic is running on the client/browser, requests can only be m
 
 ## CORS proxy
 
-To allow for general requests, the target must either have CORS enabled explicitly or the request must be routed through a CORS proxy such as `cors-anywhere`. The `proxy` parameter of this component can be supplied the host of the CORS proxy. That will route all requests through the proxy.
+To allow for general requests, the target must either have CORS enabled explicitly or the request must be routed through a CORS proxy such as `cors-anywhere`. The `proxy` prop of this component can be supplied the host of the CORS proxy. That will route all requests through the proxy.
+
+```jsx
+<Requests proxy="http://examplecorsproxy.com/" />
+```
+
 
 ## Screenshots
 

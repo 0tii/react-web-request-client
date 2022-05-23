@@ -7,8 +7,8 @@ Web Request Client Widget
  * Minimalist request client wrapping fetch
  */
 export default class RequestClient {
-    constructor(uri, method, header, body, proxy) {
-        this.proxy = proxy;
+    constructor(proxy, uri, method, header, body) {
+        this.proxy = proxy || '';
         this.uri = uri;
         this.method = method;
         this.header = header;
@@ -28,7 +28,7 @@ export default class RequestClient {
 
         try {
             var response = await fetch(
-                (this.proxy) ? this.proxy + this.uri : this.uri, {
+                (this.proxy !== undefined) ? this.proxy + this.uri : this.uri, {
                     method: this.method.toUpperCase(),
                     headers: reqHeader,
                     body: (this.method === 'get') ? null : this.body,
