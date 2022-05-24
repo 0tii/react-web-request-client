@@ -60,12 +60,9 @@ export default class RequestClient {
     }
 
     _validateUri(str) {
-        let uri = '';
-        if (!str.startsWith('http://') && !str.startsWith('https://')) {
-            console.warn("URI given does not specify protocol. Trying to fix by defaulting to https.");
-            uri = 'https://' + str;
-        }
-        return uri;
+        return (!str.startsWith('http://') && !str.startsWith('https://')) ?
+            'https://' + str : //redirect to https if no protocol is specified
+            str;
     }
 
     /**

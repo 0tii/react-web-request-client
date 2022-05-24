@@ -18,6 +18,9 @@ To allow for general requests, the target must either have CORS enabled explicit
 <Requests proxy="http://examplecorsproxy.com/" />
 ```
 
+## Demo
+
+A live demo can be found over at [requestdemo.rauhut.me](https://requestdemo.rauhut.me/). Please note that this is solely an implementation of this ``Web Requests Widget`` without a CORS proxy, therefore you are limited in which APIs you can query. You can use it to test my [GetGuid API](https://github.com/0tii/GetGuid), though.
 
 ## Screenshots
 
